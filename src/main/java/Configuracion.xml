@@ -13,5 +13,5 @@
           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 ">
 <context:annotation-config/>
-<context:component-scan base-package="com.carranza.web"/>
+<context:component-scan base-package="com.gonzalez.web"/>
 </beans>

@@ -3,7 +3,7 @@
     <display-name>mavenSpring</display-name>
     <servlet>
         <servlet-name>ServletPersona</servlet-name>
-        <servlet-class>com.carranza.web.ServletPersona</servlet-class>
+        <servlet-class>com.gonzalez.web.ServletPersona</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletPersona</servlet-name>

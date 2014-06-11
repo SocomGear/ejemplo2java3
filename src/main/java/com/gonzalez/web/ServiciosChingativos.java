@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.carranza.web;
+package com.gonzalez.web;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
