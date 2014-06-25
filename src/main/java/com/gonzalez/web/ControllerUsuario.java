@@ -6,6 +6,7 @@
 
 package com.gonzalez.web;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,4 +23,10 @@ public class ControllerUsuario {
      String mensajito="probando el metodo get para todos los usuario";
      return mensajito;
  }
+ @RequestMapping(value = "/usuario",method = RequestMethod.GET,headers = ("Accept=Application/json"))
+@ResponseBody String mijason(){
+ObjectMapper mapeadorjson=new ObjectMapper();
+
+return null;
+}
 }
