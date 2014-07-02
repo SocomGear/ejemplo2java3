@@ -6,40 +6,55 @@
 
 package com.ale.model;
 
+import java.io.Serializable;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
 /**
  *
  * @author T107
  */
-public class Usuario {
-    
-    private String Nombre;
-    private String paterno;
-    private String usuario;
+@Entity
+@Table(name = "usuario")
+@NamedQueries({
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")})
+public class Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "login")
+    private String login;
+    @Basic(optional = false)
+    @Column(name = "password")
     private String password;
-    private char rol_admin;
+    @Basic(optional = false)
+    @Column(name = "admin_rol")
+    private String adminRol;
 
-    public String getNombre() {
-        return Nombre;
+    public Usuario() {
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public Usuario(String login) {
+        this.login = login;
     }
 
-    public String getPaterno() {
-        return paterno;
+    public Usuario(String login, String password, String adminRol) {
+        this.login = login;
+        this.password = password;
+        this.adminRol = adminRol;
     }
 
-    public void setPaterno(String paterno) {
-        this.paterno = paterno;
+    public String getLogin() {
+        return login;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {
@@ -50,13 +65,37 @@ public class Usuario {
         this.password = password;
     }
 
-    public char getRol_admin() {
-        return rol_admin;
+    public String getAdminRol() {
+        return adminRol;
     }
 
-    public void setRol_admin(char rol_admin) {
-        this.rol_admin = rol_admin;
+    public void setAdminRol(String adminRol) {
+        this.adminRol = adminRol;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (login != null ? login.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Usuario)) {
+            return false;
+        }
+        Usuario other = (Usuario) object;
+        if ((this.login == null && other.login != null) || (this.login != null && !this.login.equals(other.login))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "com.ale.model.Usuario[ login=" + login + " ]";
+    }
     
 }

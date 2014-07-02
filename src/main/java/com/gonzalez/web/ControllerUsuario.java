@@ -6,6 +6,9 @@
 
 package com.gonzalez.web;
 
+import com.ale.model.DAOUsuarioImpl;
+import com.ale.model.Usuario;
+import java.util.ArrayList;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,5 +31,9 @@ public class ControllerUsuario {
 ObjectMapper mapeadorjson=new ObjectMapper();
 
 return null;
+}
+@RequestMapping(value="/bichito",method = RequestMethod.GET ,headers = ("Accept=Application/json"))
+@ResponseBody ArrayList<Usuario> jaime(){
+    return DAOUsuarioImpl.Implementar();
 }
 }
